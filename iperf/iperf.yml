@@ -17,10 +17,9 @@ services:
         - traefik.docker.network=traefik_public
 
         # traefikv2
-        - "traefik.http.routers.iam.rule=Host(`iperf.ecom.com.ar`)"
-        - "traefik.http.services.iam.loadbalancer.server.port=5201"
-        - "traefik.enable=true"
+        - "traefik.http.routers.iperf.rule=Host(`iperf.ecom.com.ar`)"
+        - "traefik.http.services.iperf.loadbalancer.server.port=5201"
 
 networks:
   traefik_public:
-    attachable: true
+    external: true
