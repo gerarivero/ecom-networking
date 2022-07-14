@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  iperf:
+    image: clearlinux/iperf
+    #ports:
+    #  - target: 5201
+    #  - published: 5201
+    #  - protocol: tcp
+    #  - mode: host
+    networks:
+      - public
+
+networks:
+  public:
+    driver: overlay
+    attachable: true
