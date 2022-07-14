@@ -9,8 +9,18 @@ services:
     #  - protocol: tcp
     #  - mode: host
     networks:
-      - public
+      - traefik_public
+    deploy:
+      labels:
+        # traefik common
+        - traefik.enable=true
+        - traefik.docker.network=traefik_public
+
+        # traefikv2
+        - "traefik.http.routers.iam.rule=Host(`iperf.ecom.com.ar`)"
+        - "traefik.http.services.iam.loadbalancer.server.port=5201"
+        - "traefik.enable=true"
 
 networks:
-  public:
+  traefik_public:
     attachable: true
