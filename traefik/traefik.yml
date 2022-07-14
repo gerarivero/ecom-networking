@@ -11,10 +11,10 @@ services:
     deploy:
       replicas: 0
     networks:
-      - traefik_public
+      - public
 
 networks:
-  traefik_public:
+  public:
     driver: overlay
     attachable: true
     ipam:
