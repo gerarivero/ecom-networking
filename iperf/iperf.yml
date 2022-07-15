@@ -8,6 +8,8 @@ services:
     #  - published: 5201
     #  - protocol: tcp
     #  - mode: host
+    command: >
+      -s
     networks:
       - traefik_public
     deploy:
