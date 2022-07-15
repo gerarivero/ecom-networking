@@ -9,7 +9,7 @@ services:
     #  - protocol: tcp
     #  - mode: host
     command: >
-      iperf -s
+      iperf3 -s
     networks:
       - traefik_public
     deploy:
