@@ -21,6 +21,7 @@ services:
         published: 8080
         protocol: tcp
       - 5201:5201
+      - 5432:5432
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /var/data/ecom-networking/traefik:/etc/traefik

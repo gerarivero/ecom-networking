@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: example
+    networks:
+      - traefik_public
+    deploy:
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=traefik_public
+      - traefik.tcp.routers.db-tcp.rule=HostSNI(`*`)
+      - traefik.tcp.routers.db-tcp.entrypoints=postgres
+      - traefik.tcp.routers.db-tcp.service=db-proxy
+      - traefik.tcp.services.db-proxy.loadbalancer.server.port=5432
+
+networks:
+  traefik_public:
+    external: true

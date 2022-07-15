@@ -25,6 +25,9 @@
 [entryPoints.iperf]
   address = ":5201"
 
+[entryPoints.postgres]
+  address = ":5432"
+
 # Let's Encrypt
 [certificatesResolvers.main.acme]
   email = "grivero@chaco.gov.ar"
