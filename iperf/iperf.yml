@@ -19,7 +19,7 @@ services:
         - traefik.docker.network=traefik_public
 
         # traefikv2
-        - "traefik.tcp.routers.iperf.rule=HostSNI(`iperf.ecom.com.ar`)"
+        - "traefik.tcp.routers.iperf.rule=HostSNI(`*`)"
         - "traefik.tcp.services.iperf.loadbalancer.server.port=5201"
         - "traefik.tcp.routers.iperf.entrypoints=iperf"
 
