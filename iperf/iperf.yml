@@ -3,11 +3,8 @@ version: "3.7"
 services:
   iperf:
     image: clearlinux/iperf
-    #ports:
-    #  - target: 5201
-    #  - published: 5201
-    #  - protocol: tcp
-    #  - mode: host
+    ports:
+      - 5201:5201
     command: >
       iperf3 -s
     networks:

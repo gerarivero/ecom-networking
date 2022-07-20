@@ -22,8 +22,8 @@
   [entryPoints.https.http.tls]
     certResolver = "main"
 
-[entryPoints.iperf]
-  address = ":5201"
+#[entryPoints.iperf]
+#  address = ":5201"
 
 [entryPoints.postgres]
   address = ":5432"

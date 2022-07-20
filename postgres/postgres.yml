@@ -12,10 +12,11 @@ services:
     labels:
       - traefik.enable=true
       - traefik.docker.network=traefik_public
+      
       - traefik.tcp.routers.db-tcp.rule=HostSNI(`*`)
       - traefik.tcp.routers.db-tcp.entrypoints=postgres
-      - traefik.tcp.routers.db-tcp.service=db-proxy
-      - traefik.tcp.services.db-proxy.loadbalancer.server.port=5432
+      #- traefik.tcp.routers.db-tcp.service=db-proxy
+      - traefik.tcp.services.db.loadbalancer.server.port=5432
 
 networks:
   traefik_public:
