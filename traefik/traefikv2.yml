@@ -2,7 +2,7 @@ version: "3.2"
 
 services:
   app:
-    image: traefik:v2.4
+    image: traefik:v2.8.1
     #env_file: /var/data/config/traefikv2/traefikv2.env
     # Note below that we use host mode to avoid source nat being applied to our ingress HTTP/HTTPS sessions
     # Without host mode, all inbound sessions would have the source IP of the swarm nodes, rather than the
@@ -31,15 +31,11 @@ services:
         - "traefik.docker.network=traefik_public"
         - "traefik.http.routers.api.rule=Host(`traefik.nc.ecom.com`)"
         - "traefik.http.routers.api.entrypoints=https"
-        #- "traefik.http.routers.api.tls.domains[0].main=example.com"
-        #- "traefik.http.routers.api.tls.domains[0].sans=*.example.com"        
         - "traefik.http.routers.api.tls=true"
         - "traefik.http.routers.api.tls.certresolver=main"
         - "traefik.http.routers.api.service=api@internal"
-        - "traefik.http.services.dummy.loadbalancer.server.port=9999"
+        - "traefik.http.services.traefik.loadbalancer.server.port=8080"
 
-        # uncomment this to enable forward authentication on the traefik api/dashboard
-        #- "traefik.http.routers.api.middlewares=forward-auth"      
       placement:
         constraints: [node.role == manager]
 
