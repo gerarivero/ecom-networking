@@ -12,18 +12,9 @@
 
 [entryPoints.http]
   address = ":80"
-  # Redirect to HTTPS (why wouldn't you?)
-  [entryPoints.http.http.redirections.entryPoint]
-    to = "https"
-    scheme = "https"
 
-[entryPoints.https]
-  address = ":443"
-  [entryPoints.https.http.tls]
-    certResolver = "main"
-
-#[entryPoints.iperf]
-#  address = ":5201"
+[entryPoints.iperf]
+  address = ":5201"
 
 [entryPoints.postgres]
   address = ":5432"
