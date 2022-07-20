@@ -17,11 +17,9 @@ services:
         published: 443
         protocol: tcp
         mode: host
-      - target: 8080
-        published: 8080
-        protocol: tcp
-      - 5201:5201
-      - 5432:5432
+      - target: 5432
+        published: 5432
+        mode: host
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /var/data/ecom-networking/traefik:/etc/traefik
