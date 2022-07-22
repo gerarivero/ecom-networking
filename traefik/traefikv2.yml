@@ -20,10 +20,6 @@ services:
         published: 443
         protocol: tcp
         mode: host
-      - target: 5201
-        published: 5201
-        protocol: tcp
-        mode: host
       - target: 5432
         published: 5432
         protocol: tcp
