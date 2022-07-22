@@ -3,23 +3,12 @@ version: "3.7"
 services:
   iperf:
     image: clearlinux/iperf
-    #ports:
-    #  - 5201:5201
+    ports:
+      - 5201:5201
     command: >
       iperf3 -s
     networks:
       - traefik_public
-    deploy:
-      labels:
-        # traefik common
-        - traefik.enable=true
-        - traefik.docker.network=traefik_public
-
-        # traefikv2
-        - traefik.tcp.routers.iperf.rule=HostSNI(`*`)
-        - traefik.tcp.routers.iperf.service=iperf
-        - traefik.tcp.routers.iperf.entrypoints=iperf
-        - traefik.tcp.services.iperf.loadbalancer.server.port=5201
 
 networks:
   traefik_public:
