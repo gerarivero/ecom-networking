@@ -14,7 +14,7 @@ services:
       
         - traefik.tcp.routers.db-tcp.rule=HostSNI(`*`)
         - traefik.tcp.routers.db-tcp.entrypoints=postgres
-        - traefik.tcp.routers.postgres.service=postgres
+        - traefik.tcp.routers.db-tcp.service=postgres
         # services (needed for TCP)
         - traefik.tcp.services.postgres.loadbalancer.server.port=5432
 

@@ -16,9 +16,10 @@ services:
         - traefik.docker.network=traefik_public
 
         # traefikv2
-        - "traefik.tcp.routers.iperf.rule=HostSNI(`*`)"
-        - "traefik.tcp.services.iperf.loadbalancer.server.port=5201"
-        - "traefik.tcp.routers.iperf.entrypoints=iperf"
+        - traefik.tcp.routers.iperf.rule=HostSNI(`*`)
+        - traefik.tcp.routers.iperf.service=iperf
+        - traefik.tcp.routers.iperf.entrypoints=iperf
+        - traefik.tcp.services.iperf.loadbalancer.server.port=5201
 
 networks:
   traefik_public:
