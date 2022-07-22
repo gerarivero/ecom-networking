@@ -7,7 +7,7 @@
 
 # Write out Traefik logs
 [log]
-  level = "INFO"
+  level = "DEBUG"
   filePath = "/traefik.log"
 
 [entryPoints.http]
