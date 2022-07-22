@@ -34,7 +34,7 @@ services:
     # Global mode makes an instance of traefik listen on _every_ node, so that regardless of which
     # node the request arrives on, it'll be forwarded to the correct backend service.
     deploy:
-      #mode: global
+      mode: global
       labels:
         - "traefik.docker.network=traefik_public"
         - "traefik.http.routers.api.rule=Host(`traefik.nc.ecom.com`)"
